@@ -10,8 +10,6 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const { setShowSearch, getCartCount, showSearch } = useShop();
 
-  console.log(showSearch, "search-navbar");
-
   const navItems = ["HOME", "COLLECTION", "ABOUT", "CONTACT"];
 
   return (

@@ -11,8 +11,6 @@ const SearchBar = () => {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
 
-  console.log(showSearch, "search-bar");
-
   useEffect(() => {
     if (pathname.includes("collection")) {
       setVisible(true);
@@ -20,7 +18,6 @@ const SearchBar = () => {
       setVisible(false);
     }
   }, [pathname]);
-
 
   return showSearch && visible ? (
     <div className="border-t border-b bg-gray-50 text-center">
