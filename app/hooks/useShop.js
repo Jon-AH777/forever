@@ -4,7 +4,7 @@ import { products } from "@/assets/frontend_assets/assets";
 import { atom, useAtom } from "jotai";
 
 const showSearchAtom = atom(false);
-const searchAtom = atom('')
+const searchAtom = atom("");
 
 const useShop = () => {
   const currency = "$";
