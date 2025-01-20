@@ -12,7 +12,6 @@ const page = () => {
   const { products, currency, cartItems, updateQuantity, pathname } = useShop();
   const [cartData, setCartData] = useState([]);
   useEffect(() => {
-    console.log("cart items in cart page:", cartItems);
     const tempData = [];
     for (const items in cartItems) {
       for (const item in cartItems[items]) {
@@ -39,7 +38,6 @@ const page = () => {
             (product) => product._id === item._id
           );
           if (!productData) {
-            console.log("product not found for id:", item._id);
             return null;
           }
           return (
