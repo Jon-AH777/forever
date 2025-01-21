@@ -2,28 +2,17 @@ import { toast } from "react-toastify";
 import { products } from "@/assets/frontend_assets/assets";
 import { useAtom } from "jotai";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import { atom } from "jotai";
-const showSearchAtom = atom(false);
-const searchAtom = atom("");
-const cartAtom = atom({});
-const useShop = (key, initialValue) => {
+import { atomWithStorage } from "jotai/utils";
+const showSearchAtom = atomWithStorage(false);
+const searchAtom = atomWithStorage("");
+const cartAtom = atomWithStorage({});
+const useShop = () => {
   const currency = "$";
   const delivery_fee = 10;
   const [search, setSearch] = useAtom(searchAtom);
   const [showSearch, setShowSearch] = useAtom(showSearchAtom);
   const [cartItems, setCartItems] = useAtom(cartAtom);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const savedCart = localStorage.getItem(key);
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
-    }
-  }, [key, setCartItems]);
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(cartItems));
-  }, [key, cartItems]);
 
   const addToCart = async (itemId, size) => {
     if (!size) {
